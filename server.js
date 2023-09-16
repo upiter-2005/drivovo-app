@@ -8,7 +8,7 @@ let jsonParser = bodyParser.json();
 const app = express();
 app.use(cors());
 
-const PORT = 4000;
+const port = process.env.PORT || 4000;
 const HOST = "Localhost";
 
 const notion = new Client({ auth: "secret_ujtyPJdXLquFVFKJblm0Iqao88XGsVMCogg8mu5SV1R" });
@@ -32,6 +32,6 @@ app.get("/", jsonParser, async (req, res) => {
 
 console.log("Hello!!!!!!!");
 
-app.listen(PORT, HOST, () => {
-  console.log("Starting proxy at" + HOST + ": " + PORT);
+app.listen(port, () => {
+  console.log("Starting proxy at : " + port);
 });
