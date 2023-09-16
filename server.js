@@ -9,7 +9,6 @@ const app = express();
 app.use(cors());
 
 const port = process.env.PORT || 4000;
-const HOST = "Localhost";
 
 const notion = new Client({ auth: "secret_ujtyPJdXLquFVFKJblm0Iqao88XGsVMCogg8mu5SV1R" });
 
