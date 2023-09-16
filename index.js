@@ -1,12 +1,12 @@
-import express, { json } from "express";
+const express = require("express");
 
-import cors from "cors";
+const cors = require("cors");
 
 const app = express();
-app.use(json());
+app.use(express.json());
 app.use(cors());
 
-import { Client } from "@notionhq/client";
+const { Client } = require("@notionhq/client");
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -23,9 +23,9 @@ app.get("/", async (req, res) => {
     const data = await notion.databases.query({
       database_id: databaswId,
     });
-    res.json({ data });
+    res.status(200).json({ data });
   } catch (e) {
-    res.json({ message: "Not denie" });
+    res.status(411).json({ message: "Not denie" });
   }
 });
 
