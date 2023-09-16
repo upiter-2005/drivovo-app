@@ -1,11 +1,13 @@
 const express = require("express");
+
 const { Client } = require("@notionhq/client");
 const cors = require("cors");
 
-let bodyParser = require("body-parser");
-let jsonParser = bodyParser.json();
+// let bodyParser = require("body-parser");
+// let jsonParser = bodyParser.json();
 
 const app = express();
+app.use(express.json());
 app.use(cors());
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -19,7 +21,7 @@ const databaswId = "c07fa663465e4589bab3e02ebd925d54";
 
 //app.post("/submitFormToNotion", jsonParser, async (req, res) => {});
 
-app.get("/", jsonParser, async (req, res) => {
+app.get("/", async (req, res) => {
   try {
     const data = await notion.databases.query({
       database_id: databaswId,
