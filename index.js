@@ -18,14 +18,14 @@ const databaswId = "c07fa663465e4589bab3e02ebd925d54";
 
 //app.post("/submitFormToNotion", jsonParser, async (req, res) => {});
 
-app.get("/", async (req, res) => {
+app.get("/cars", async (req, res) => {
   try {
     const data = await notion.databases.query({
       database_id: databaswId,
     });
-    res.status(200).json({ data });
+    return res.status(200).json({ data });
   } catch (e) {
-    res.status(411).json({ message: "Not denie" });
+    return res.status(411).json({ message: "Not denie" });
   }
 });
 
