@@ -3,9 +3,6 @@ const express = require("express");
 const { Client } = require("@notionhq/client");
 const cors = require("cors");
 
-// let bodyParser = require("body-parser");
-// let jsonParser = bodyParser.json();
-
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -30,8 +27,6 @@ app.get("/", async (req, res) => {
   } catch (e) {
     res.json({ message: "Not denie" });
   }
-
-  //console.log(res);
 });
 
 console.log("Hello!!!!!!!");
