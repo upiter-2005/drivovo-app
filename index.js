@@ -7,8 +7,11 @@ let jsonParser = bodyParser.json();
 
 const app = express();
 app.use(cors());
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 9002;
 
 const notion = new Client({ auth: "secret_ujtyPJdXLquFVFKJblm0Iqao88XGsVMCogg8mu5SV1R" });
 
