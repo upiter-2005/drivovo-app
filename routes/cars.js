@@ -9,12 +9,12 @@ router.get("/", async (req, res, next) => {
   try {
     const data = await notion.databases.query({
       database_id: databaswId,
-      // sorts: [
-      //   {
-      //     property: "car_price_ex_showroom",
-      //     direction: "ascending",
-      //   },
-      // ],
+      sorts: [
+        {
+          property: "Name",
+          direction: "ascending",
+        },
+      ],
     });
     return res.json({ data });
   } catch (e) {
